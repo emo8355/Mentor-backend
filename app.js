@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 
 module.exports = () => {
+
+	const workshopRouter = require('./routes/workshop')();
 	app.use(express.static(path.join(__dirname, "public")));
 	app.use(compression());
 
@@ -17,8 +19,8 @@ module.exports = () => {
 	app.use(cookieParser());
 	app.use(helmet());
 
-	// const db = process.env.MONGO_URI;
-	const db = 'mongodb+srv://admin:dbpassword@nwhack.tpruh.mongodb.net/mentor?retryWrites=true&w=majority'
+	const db = process.env.MONGO_URI;
+	
 	mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(()=>{
             console.log('MongoDB Database Connected')

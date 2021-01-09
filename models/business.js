@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose'
+const mongoose = require('mongoose');
 
 export const BusinessSchema = new mongoose.Schema({
     name: {

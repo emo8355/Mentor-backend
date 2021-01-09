@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose'
+const mongoose = require('mongoose');
 
 export const CategorySchema = new mongoose.Schema({
     name : {
