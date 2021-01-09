@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const mongoose = require("mongoose");
+=======
+const mongoose = require('mongoose');
+>>>>>>> 8693f2783b940bf94812cdf9412d7e1f32357dd2
 
 const WorkshopSchema = new mongoose.Schema(
 	{

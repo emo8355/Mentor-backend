@@ -7,6 +7,7 @@ const app = express();
 const mongoose = require("mongoose");
 
 module.exports = () => {
+	const workshopRouter = require("./routes/workshop")();
 	app.use(express.static(path.join(__dirname, "public")));
 	app.use(compression());
 
