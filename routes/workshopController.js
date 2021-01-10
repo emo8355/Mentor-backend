@@ -116,10 +116,10 @@ module.exports = () => {
     });
     
 
-    workshopController.post('/update-attendance/:id/guest/:name',  (req,res)=>{
+    workshopController.post('/update-attendance/:id/guest/:guestid',  (req,res)=>{
        Workshop.updateOne(
         {_id: req.params.id},
-        {$push:{curr_attendance: req.params.name}},
+        {$push:{curr_attendance: req.params.guestid}},
         )
         .then((data)=>{
             console.log('attendance updated' + data);
@@ -138,7 +138,6 @@ module.exports = () => {
                    err : err
                })
            }
-
            res.json({
                message: "Workshop has been deleted"
            })
