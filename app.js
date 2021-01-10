@@ -7,7 +7,8 @@ const app = express();
 const mongoose = require("mongoose");
 
 module.exports = () => {
-	const workshopRouter = require("./routes/workshop")();
+	const businessRouter = require("./routes/businessController")();
+	const workshopRouter = require("./routes/workshopController")();
 	app.use(express.static(path.join(__dirname, "public")));
 	app.use(compression());
 
@@ -31,6 +32,8 @@ module.exports = () => {
 	app.get("/", (req, res) => {
 		res.send("server up");
 	});
+
+	app.use("/business", businessRouter);
 
 	return app;
 };

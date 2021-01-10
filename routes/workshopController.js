@@ -1,12 +1,8 @@
-const express = require('express');
+const express = require("express");
 const workshopController = express.Router();
 
-modules.export = () => {
+module.exports = () => {
+	workshopController.get("/", (req, res) => {});
 
-
-    workshopController.get('/',  (req,res)=>{
-       
-    })
-
-    return workshopController; 
-}
+	return workshopController;
+};
