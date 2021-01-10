@@ -29,7 +29,10 @@ const WorkshopSchema = new mongoose.Schema(
 			type: Boolean,
 			required: true,
 			default: true,
-		},
+        },
+        img_url:{
+            type: String,
+        },
 		categoryID: {
 			// required: true,
 			type: mongoose.Schema.Types.ObjectId,
@@ -45,9 +48,9 @@ const WorkshopSchema = new mongoose.Schema(
 			required: true,
 		},
 		curr_attendance: {
-			type: Number,
+			type: Array,
 			required: true,
-			default: 0,
+			default: [],
 		},
 	},
 	{ timestamps: true }
