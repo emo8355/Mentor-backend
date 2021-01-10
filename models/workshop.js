@@ -36,6 +36,14 @@ const WorkshopSchema = new mongoose.Schema(
         img_url:{
             type: String,
         },
+        required_package: {
+            type: Boolean,
+            required: true,
+        },
+        packageID: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Package"
+        },
 		// categoryID: {
 		// 	// required: true,
 		// 	type: mongoose.Schema.Types.ObjectId,

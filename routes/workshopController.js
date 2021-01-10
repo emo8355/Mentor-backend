@@ -49,7 +49,7 @@ module.exports = () => {
                     err: err
                 })
             }
-            
+
             res.json({
                 msg: "Get workshops by business id",
                 data: data,
@@ -85,6 +85,7 @@ module.exports = () => {
                 start_time: req.body.start_time,
                 end_time: req.body.end_time,
                 location : req.body.location,
+                package_required: req.body.package_required,
                 price : req.body.price,
                 is_active : req.body.is_active,
                 categoryID : req.body.categoryID,
