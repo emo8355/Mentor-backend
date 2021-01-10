@@ -36,7 +36,7 @@ module.exports = () => {
 	});
 
 	app.use("/business", businessRouter);
-	app.use("/user", UserRouter);
+	app.use("/ticket", UserRouter);
 	app.use("/workshop", workshopRouter);
 
 	return app;
