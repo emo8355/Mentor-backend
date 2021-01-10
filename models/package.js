@@ -14,7 +14,7 @@ const PackageSchema = new mongoose.Schema(
             required: true
         },
         businessID: {
-            required: true,
+            // required: true,
             type: mongoose.Schema.Types.ObjectId,
             ref: "Businesses",
         },

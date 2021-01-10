@@ -10,6 +10,7 @@ module.exports = () => {
 
 	const businessRouter = require("./routes/businessController")();
 	const workshopRouter = require("./routes/workshopController")();
+	const packageRouter = require('./routes/packageController')();
   
 	app.use(express.static(path.join(__dirname, "public")));
 	app.use(compression());
@@ -36,7 +37,7 @@ module.exports = () => {
 	});
 
 	app.use("/business", businessRouter);
-
+	app.use('/package', packageRouter);
 	app.use('/workshop', workshopRouter);
 
 
