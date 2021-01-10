@@ -7,8 +7,8 @@ const app = express();
 const mongoose = require("mongoose");
 
 module.exports = () => {
-
 	const businessRouter = require("./routes/businessController")();
+	const UserRouter = require("./routes/ticketController")();
 	const workshopRouter = require("./routes/workshopController")();
 	const packageRouter = require('./routes/packageController')();
 	const categoryRouter = require('./routes/categoryController')();
@@ -41,6 +41,7 @@ module.exports = () => {
 	app.use('/package', packageRouter);
 	app.use('/workshop', workshopRouter);
 	app.use('/category', categoryRouter);
+	app.use("/user", UserRouter);
 
 	return app;
 };

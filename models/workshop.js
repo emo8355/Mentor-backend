@@ -13,21 +13,26 @@ const WorkshopSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+
 		start_time: {
 			type: Date,
 			required: true,
 		},
+
 		end_time: {
 			type: Date,
 			required: true,
 		},
+
 		location: {
 			type: String,
 			required: true,
 		},
+
 		price: {
 			type: Number,
 		},
+
 		is_active: {
 			type: Boolean,
 			required: true,
@@ -49,11 +54,13 @@ const WorkshopSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Category",
 		},
+
 		businessID: {
 			// required: true,
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Business",
 		},
+
 		max_attendance: {
 			type: Number,
 			required: true,
@@ -64,8 +71,12 @@ const WorkshopSchema = new mongoose.Schema(
         },
 		curr_attendance: {
 			type: Array,
-			required: true,
 			default: [],
+		},
+
+		numberOfPeople: {
+			type: Number,
+			default: 0,
 		},
 	},
 	{ timestamps: true }

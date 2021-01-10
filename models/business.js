@@ -30,7 +30,10 @@ const BusinessSchema = new mongoose.Schema(
         },
         rating : {
             type: Number
-        }
+        },
+		img_url: {
+			type: String,
+		},
 	},
 	{ timestamps: true }
 );
