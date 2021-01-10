@@ -10,7 +10,9 @@ module.exports = () => {
 	const businessRouter = require("./routes/businessController")();
 	const UserRouter = require("./routes/ticketController")();
 	const workshopRouter = require("./routes/workshopController")();
-
+	const packageRouter = require('./routes/packageController')();
+	const categoryRouter = require('./routes/categoryController')();
+  
 	app.use(express.static(path.join(__dirname, "public")));
 	app.use(compression());
 
@@ -36,8 +38,10 @@ module.exports = () => {
 	});
 
 	app.use("/business", businessRouter);
+	app.use('/package', packageRouter);
+	app.use('/workshop', workshopRouter);
+	app.use('/category', categoryRouter);
 	app.use("/user", UserRouter);
-	app.use("/workshop", workshopRouter);
 
 	return app;
 };
