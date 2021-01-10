@@ -5,7 +5,10 @@ const WorkshopSchema = new mongoose.Schema(
 		name: {
 			type: String,
 			required: true,
-		},
+        },
+        description: {
+            type:String,
+        },
 		mentor_name: {
 			type: String,
 			required: true,
@@ -34,19 +37,23 @@ const WorkshopSchema = new mongoose.Schema(
             type: String,
         },
 		categoryID: {
-			// required: true,
+			required: true,
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Category",
 		},
 		businessID: {
-			// required: true,
+			required: true,
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Business",
 		},
 		max_attendance: {
 			type: Number,
 			required: true,
-		},
+        },
+        min_attendance:{
+            type:Number,
+            required: true,
+        },
 		curr_attendance: {
 			type: Array,
 			required: true,
