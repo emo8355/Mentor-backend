@@ -28,6 +28,9 @@ const BusinessSchema = new mongoose.Schema(
 		address: {
 			type: String,
 		},
+		img_url: {
+			type: String,
+		},
 	},
 	{ timestamps: true }
 );
