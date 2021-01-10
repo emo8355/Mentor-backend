@@ -1,19 +1,25 @@
 const mongoose = require("mongoose");
 
-export const UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
 	{
 		name: {
 			type: String,
 			required: true,
 		},
+
 		email: {
 			type: String,
 			required: true,
 		},
 
-		role: {
+		phone_number: {
 			type: String,
-			maxlength: [300, "Max character count is 300 letters."],
+			default: "(000) - 000 0000",
+		},
+
+		numberOfPeople: {
+			type: Number,
+			default: 0,
 		},
 	},
 	{ timestamps: true }
