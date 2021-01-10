@@ -36,16 +36,16 @@ const WorkshopSchema = new mongoose.Schema(
         img_url:{
             type: String,
         },
-		categoryID: {
-			required: true,
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "Category",
-		},
-		businessID: {
-			required: true,
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "Business",
-		},
+		// categoryID: {
+		// 	// required: true,
+		// 	type: mongoose.Schema.Types.ObjectId,
+		// 	ref: "Category",
+		// },
+		// businessID: {
+		// 	// required: true,
+		// 	type: mongoose.Schema.Types.ObjectId,
+		// 	ref: "Business",
+		// },
 		max_attendance: {
 			type: Number,
 			required: true,

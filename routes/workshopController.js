@@ -7,27 +7,54 @@ module.exports = () => {
 
 
     workshopController.get('/all',  (req,res)=>{
-       const dbWorkshops = Workshop.find();
-       res.json({
-           msg: "All workshops",
-           data: dbWorkshops,
-       })
+       Workshop.find({},(err, data)=>{
+            if (err) {
+                res.status = 400;
+                res.json({
+                    message: "error",
+                    err: err
+                })
+            }
+            res.json({
+                msg: "All workshops",
+                data: data,
+            })
+       });
+       
     })
 
     workshopController.get('/:id',  (req,res)=>{
-        const dbWorkshop = Workshop.find({id : req.params.id});
-        res.json({
-            msg: "One workshop",
-            data: dbWorkshop,
-        })
+        Workshop.find({id : req.params.id}, (err, data)=> {
+            if (err) {
+                res.status = 400;
+                res.json({
+                    message: "error",
+                    err: err
+                })
+            }
+
+            res.json({
+                msg: "One workshop",
+                data: data,
+            })
+        });
     })
 
     workshopController.get('/business/:id',  (req,res)=>{
-        const dbWorkshops = Workshop.find({businessID : req.params.id});
-        res.json({
-            msg: "Get workshops by business id",
-            data: dbWorkshops,
-        })
+        Workshop.find({businessID : req.params.id}, (err, data)=>{
+            if (err) {
+                res.status = 400;
+                res.json({
+                    message: "error",
+                    err: err
+                })
+            }
+            
+            res.json({
+                msg: "Get workshops by business id",
+                data: data,
+            })
+        });
     })
 
     workshopController.post('/create',  (req,res)=>{
@@ -53,11 +80,20 @@ module.exports = () => {
             {id: req.params.id},
             {$set:{
                 name: req.body.name,
-                
+                description: req.body.description,
+                mentor_name : req.body.mentor_name,
+                start_time: req.body.start_time,
+                end_time: req.body.end_time,
+                location : req.body.location,
+                price : req.body.price,
+                is_active : req.body.is_active,
+                categoryID : req.body.categoryID,
+                max_attendance : req.body.max_attendance,
+                min_attendance : req.body.min_attendance, 
             }},
             )
             .then((data)=>{
-                console.log('attendance updated' + data);
+                console.log('workshop info updated' + data);
             })
             .catch(err=>{
                 console.log(err)
