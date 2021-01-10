@@ -1,6 +1,8 @@
 const express = require("express");
 const workshopController = express.Router();
 const Workshop = require('../models/workshop');
+const AWS = require("../middleware/imageUpload");
+
 
 module.exports = () => {
 	workshopController.get("/", (req, res) => {});
@@ -24,7 +26,9 @@ module.exports = () => {
     })
 
     workshopController.get('/:id',  (req,res)=>{
-        Workshop.find({id : req.params.id}, (err, data)=> {
+        console.log(req.params.id);
+        Workshop.find({_id : req.params.id}, (err, data)=> {
+            console.log(data)
             if (err) {
                 res.status = 400;
                 res.json({
@@ -77,7 +81,7 @@ module.exports = () => {
 
     workshopController.post('/update-info/:id',  (req,res)=>{
         Workshop.updateOne(
-            {id: req.params.id},
+            {_id: req.params.id},
             {$set:{
                 name: req.body.name,
                 description: req.body.description,
@@ -101,9 +105,20 @@ module.exports = () => {
             })
     })
 
+   
+    workshopController.post(AWS.upload.single("pic"), (req, res) => {
+        const infoBody = { ...req.body };
+        const file = req.file;
+        let img_url = `https://d39wlfkh0mxxlz.cloudfront.net/${file.originalname}`;
+        console.log(img_url);
+        console.log(infoBody);
+        res.send("ojbk");
+    });
+    
+
     workshopController.post('/update-attendance/:id/guest/:name',  (req,res)=>{
        Workshop.updateOne(
-        {id: req.params.id},
+        {_id: req.params.id},
         {$push:{curr_attendance: req.params.name}},
         )
         .then((data)=>{
@@ -115,7 +130,7 @@ module.exports = () => {
     })
 
     workshopController.post('/delete/:id',  (req,res)=>{
-       Workshop.deleteOne({id: req.params.id}, (err)=>{
+       Workshop.deleteOne({_id: req.params.id}, (err)=>{
            if (err) {
                res.status = 400;
                res.json({
