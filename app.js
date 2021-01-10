@@ -38,10 +38,12 @@ module.exports = () => {
 	});
 
 	app.use("/business", businessRouter);
+	app.use("/ticket", UserRouter);
+	app.use("/workshop", workshopRouter);
 	app.use('/package', packageRouter);
 	app.use('/workshop', workshopRouter);
 	app.use('/category', categoryRouter);
-	app.use("/user", UserRouter);
+
 
 	return app;
 };

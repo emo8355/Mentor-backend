@@ -5,7 +5,7 @@ const ticket = require("../models/ticket");
 
 module.exports = () => {
 	router.get("/", (req, res) => {
-		res.send("user route");
+		res.send("ticket route");
 	});
 
 	router.get("/all", (req, res) => {
