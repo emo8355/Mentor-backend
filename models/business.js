@@ -27,7 +27,10 @@ const BusinessSchema = new mongoose.Schema(
 		},
 		address: {
 			type: String,
-		},
+        },
+        rating : {
+            type: Number
+        },
 		img_url: {
 			type: String,
 		},
